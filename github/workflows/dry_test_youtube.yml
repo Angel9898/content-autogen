@@ -1,0 +1,36 @@
+name: dry-test-youtube
+on:
+  workflow_dispatch:
+    inputs:
+      SELF_TEST:
+        description: 'Run in self-test mode'
+        required: false
+        default: 'true'
+jobs:
+  dry-youtube:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Run youtube dry test
+        env:
+          SELF_TEST: ${{ github.event.inputs.SELF_TEST }}
+          DRY_RUN: 'true'
+          HF_API_KEY: ${{ secrets.HF_API_KEY }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          LI_ACCESS_TOKEN: ${{ secrets.LI_ACCESS_TOKEN }}
+          LI_OWNER_URN: ${{ secrets.LI_OWNER_URN }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+        run: |
+          python -c "print('Running dry test for youtube')"
+          python scripts/publish_youtube.py assets/content.json || true
