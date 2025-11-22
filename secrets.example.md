@@ -1,0 +1,30 @@
+# Required GitHub Secrets (exact names)
+HF_API_KEY
+GEMINI_API_KEY
+CHATGPT_API_KEY
+GEMINI_NANO_KEY
+
+# YouTube (Google)
+YT_CLIENT_ID
+YT_CLIENT_SECRET
+YT_REFRESH_TOKEN
+
+# Instagram / Facebook
+IG_USER_ID
+FB_PAGE_ACCESS_TOKEN
+IMAGE_HOSTING_URL   # Optional: endpoint to upload images and return public URLs
+
+# LinkedIn
+LI_OWNER_URN
+LI_ACCESS_TOKEN
+
+# X (Twitter)
+TWITTER_API_KEY
+TWITTER_API_SECRET
+TWITTER_ACCESS_TOKEN
+TWITTER_ACCESS_SECRET
+X_BEARER_TOKEN
+
+# Control flags
+SELF_TEST
+DRY_RUN

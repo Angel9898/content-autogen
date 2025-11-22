@@ -1,0 +1,14 @@
+flowchart TD
+  A[GitHub Actions Scheduler] --> B[Generate Text (Gemini/ChatGPT)]
+  B --> C[Generate Images (HF SDXL)]
+  B --> D[Microtasks (Nano)]
+  C --> E[Generate Audio (HF TTS)]
+  C --> F[Assemble Video (FFmpeg)]
+  F --> G[Platform Packaging]
+  G --> H[YouTube]
+  G --> I[Instagram]
+  G --> J[LinkedIn]
+  G --> K[X (Twitter)]
+  subgraph SelfTest [SELF_TEST Mode]
+    B & C & F --> ST[Validate payloads & simulate]
+  end

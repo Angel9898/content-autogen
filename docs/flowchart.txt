@@ -1,0 +1,1 @@
+Open docs/flowchart.mmd to view the mermaid source for the flowchart.
